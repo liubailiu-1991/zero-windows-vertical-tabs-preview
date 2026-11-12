@@ -1,0 +1,27 @@
+/* Scope restored from the user-supplied page/state pairs, without changing ZERO host geometry. */
+#popover .search-results{width:100%;margin:0;padding:0}
+#popover .search-result{min-height:48px;height:48px;margin:0}
+#popover .search-result:focus-within .result-close{visibility:visible}
+#popover .result-heading svg{width:16px;height:16px}
+#hovercard .preview img{display:block;width:100%;height:100%;object-fit:cover}
+#hovercard .hover-domain{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#about .settings-body{position:relative;min-width:960px;min-height:100%}
+#about .settings-content h1{margin-bottom:14px}
+#about .copyright-card{color:#444746;margin-top:43px;padding-bottom:16px}
+#about .external-mark{width:16px;height:16px;margin-left:4px}
+#newtab[data-density="compact"]{--shortcuts-width:560px}
+#newtab[data-density="compact"] .shortcut img{padding:12px;background:transparent}
+#assistant .quick-actions button{display:flex;align-items:center;gap:8px;padding:0 12px;font-size:14px;line-height:22px;border-radius:8px}
+#assistant .quick-actions img,#assistant .auto-mode img{width:16px;height:16px;display:block;flex:none}
+#assistant .quick-actions button:hover{background:rgba(0,0,0,.1)}
+#assistant .auto-mode{display:flex;align-items:center;gap:4px}
+#assistant .page-context .favicon{width:16px;height:16px;display:flex;align-items:center;justify-content:center}
+#assistant .page-context .favicon img,#assistant .page-context .favicon svg{width:16px;height:16px}
+
+#popover .search-head kbd{display:block}#popover .search-head.has-query kbd{display:none}
+
+#popover .search-results{max-height:calc(100dvh - var(--search-top,38px) - 74px);scrollbar-color:#0b57d0 transparent;scrollbar-width:thin}
+#popover .search-results::-webkit-scrollbar{width:4px}#popover .search-results::-webkit-scrollbar-thumb{background:#0b57d0;border-radius:2px}
+
+#popover .no-results{min-height:40px;display:grid;place-items:center;padding:0 16px}
+#context-menu[data-multi="true"]{width:254px}

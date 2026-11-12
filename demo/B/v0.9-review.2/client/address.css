@@ -1,0 +1,99 @@
+body.address-open #current-location {
+  visibility: hidden;
+}
+
+#address-editor {
+  padding: 0;
+  height: auto;
+  min-height: 114px;
+  max-width: none;
+  border-radius: 17px;
+  container-type: inline-size;
+}
+
+#address-editor #address-form {
+  display: flex;
+  flex-direction: column;
+  min-height: 114px;
+}
+
+#address-editor .address-input-row {
+  height: 34px;
+  flex: none;
+  gap: 8px;
+  padding: 0 8px;
+}
+
+#address-editor .google-g {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  background: #fff;
+  border-radius: 50%;
+}
+
+#address-editor .google-g img,
+#address-editor .google-g svg {
+  width: 16px;
+  height: 16px;
+}
+
+#address-editor .address-caret {
+  display: none;
+}
+
+#address-editor input {
+  margin: 0;
+  padding: 0;
+  height: 26px;
+  line-height: 26px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #303437;
+}
+
+#address-editor input::placeholder {
+  color: #60656c;
+  opacity: 1;
+}
+
+#address-editor .address-editor-actions {
+  position: static;
+  flex: none;
+  margin: auto 12px 11px;
+}
+
+@container (width < 224px) {
+  #address-editor .address-editor-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    margin-top: 12px;
+  }
+
+  #address-editor .address-editor-actions .spacer {
+    display: none;
+  }
+
+  #address-editor .address-editor-actions .icon,
+  #address-editor .address-go {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@container (width < 160px) {
+  #address-editor .address-go {
+    font-size: 0;
+  }
+
+  #address-editor .address-go::after {
+    content: '↵';
+    font-size: 16px;
+  }
+}
