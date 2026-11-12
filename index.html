@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ZERO Windows 垂直标签方案 A 与 B 的画面评审。">
+  <meta name="robots" content="noindex">
+  <title>ZERO Windows 垂直标签评审</title>
+  <link rel="stylesheet" href="review.css">
+  <script defer src="review-data.js"></script>
+  <script defer src="review.js"></script>
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <h1>ZERO Windows 垂直标签</h1>
+      <p>方案画面评审 · 使用示例数据</p>
+    </header>
+    <nav aria-label="选择方案" id="plans"></nav>
+    <section aria-labelledby="plan-title">
+      <header class="plan">
+        <div>
+          <h2 id="plan-title"></h2>
+          <p id="summary"></p>
+        </div>
+        <span class="version" id="version"></span>
+      </header>
+      <nav class="states" aria-label="预设状态" id="states"></nav>
+      <figure>
+        <a class="frame" id="image-link" aria-label="查看原尺寸截图" target="_blank" rel="noopener">
+          <img id="preview" width="1280" height="800" alt="">
+        </a>
+        <figcaption>
+          <div>
+            <strong id="state-name"></strong>
+            <p id="state-description"></p>
+          </div>
+          <a class="original" id="original" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a>
+        </figcaption>
+      </figure>
+    </section>
+    <noscript>启用 JavaScript 后即可切换方案和预设状态。</noscript>
+  </main>
+</body>
+</html>
