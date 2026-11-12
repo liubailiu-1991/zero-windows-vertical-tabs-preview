@@ -1,0 +1,2 @@
+/* Sidebar markup from A v0.10, with B host placement handled separately. */
+const WINDOW_A_MARKUP='<div id="tab-area"><div id="pin-dock"><div id="pins-scroll" aria-label="固定标签滚动区域"><div id="pins" role="tablist" aria-label="固定标签页" aria-orientation="vertical"></div></div></div><div id="side-scroll" aria-label="普通标签滚动区域"><div id="vertical-tabs" role="tablist" aria-label="标签页" aria-orientation="vertical"><div id="list"></div></div></div><div id="new-tab-dock"><button id="new-tab" aria-label="打开新的标签页"></button></div></div>';

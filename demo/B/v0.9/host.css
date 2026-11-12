@@ -1,0 +1,25 @@
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;font:13px Arial,"Microsoft YaHei",sans-serif}body{--b-width:320px;--panel-bg:#cfe2ff;--panel-fg:#202124;--panel-line:#a8bfe0;--rail-width:40px;background:var(--panel-bg);color:var(--panel-fg)}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible{outline:2px solid #256bd5;outline-offset:-2px}iframe{border:0;display:block}#sidebar-slot{position:absolute;inset:0 auto 0 0;width:var(--b-width);z-index:3;overflow:hidden;background:var(--panel-bg);border-right:1px solid var(--panel-line)}#layout-button{border:0;background:var(--panel-bg);color:var(--panel-fg);width:40px;height:40px;padding:0;display:grid;place-items:center}#layout-button{position:absolute;left:0;top:0;height:42px;z-index:20;border-bottom:0}#layout-button:hover{background:color-mix(in srgb,var(--panel-bg) 90%,#808080)}#layout-button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}#plugin-frame{width:var(--b-width);height:100%;min-width:0}#client-frame{position:absolute;left:var(--b-width);top:0;width:calc(100% - var(--b-width));height:100%;z-index:1}body[data-panel=compact] #sidebar-slot{width:40px}body[data-panel=compact] #client-frame,body[data-panel=peek] #client-frame{left:40px;width:calc(100% - 40px)}body[data-panel=peek] #sidebar-slot{box-shadow:2px 0 6px #0000000f;border-radius:0 8px 8px 0}body[data-layout=horizontal] #client-frame{left:0;width:100%}body[data-layout=horizontal] #sidebar-slot{display:none}body[data-layout=horizontal][data-manager=true] #sidebar-slot{display:block;top:42px;bottom:8px;box-shadow:2px 0 6px #0000000f;border:1px solid var(--panel-line);border-radius:8px}#layout-menu{position:fixed;z-index:50;width:190px;padding:6px;background:var(--panel-bg);color:var(--panel-fg);border:1px solid var(--panel-line);box-shadow:0 3px 14px #0003;border-radius:9px}#layout-menu[hidden],.options-layer[hidden]{display:none}#layout-menu button{width:100%;min-height:34px;border:0;background:transparent;text-align:left;border-radius:5px;padding:0 10px;display:flex;align-items:center;justify-content:space-between}#layout-menu button:hover,#layout-menu button:focus-visible{background:#80808020}#layout-menu span{visibility:hidden}#layout-menu [aria-checked=true] span{visibility:visible}#layout-menu hr{border:0;border-top:1px solid var(--panel-line);margin:5px 0}.options-layer{position:fixed;inset:32px 24px 24px max(24px,calc(var(--b-width) + 8px));z-index:60;border:1px solid var(--panel-line);background:var(--panel-bg);border-radius:10px;box-shadow:0 4px 24px #0003;overflow:hidden}.options-layer>button{position:absolute;right:8px;top:8px;z-index:1;border:0;width:28px;height:28px;border-radius:50%;background:#ddd}.options-layer iframe{height:100%;width:100%}
+
+body[data-layout=horizontal] #layout-button{background:#cfe2ff;border-bottom:0}body[data-layout=horizontal] #layout-button:hover{background:#a8c7fa}
+
+/* B v0.5: continuous rail seam; root cell shares the iframe rail divider. */
+#layout-button::before{content:"";position:absolute;right:0;top:0;bottom:0;width:1px;background:var(--panel-line);pointer-events:none}
+#layout-button::after{content:"";position:absolute;left:6px;right:6px;bottom:0;height:1px;background:var(--panel-line);pointer-events:none}
+body[data-layout=horizontal] #layout-button::before,body[data-layout=horizontal] #layout-button::after{display:none}
+#sidebar-resizer{position:absolute;top:0;bottom:0;left:calc(var(--b-width) - 3px);width:6px;z-index:10;cursor:ew-resize;touch-action:none;outline:0}
+#sidebar-resizer:hover::after,#sidebar-resizer:focus-visible::after,body[data-resizing=true] #sidebar-resizer::after{content:"";position:absolute;left:2px;top:0;bottom:0;width:2px;background:#256bd5}
+body[data-panel=compact] #sidebar-resizer,body[data-layout=horizontal] #sidebar-resizer{display:none}
+body[data-resizing=true],body[data-resizing=true] *{cursor:ew-resize!important;user-select:none!important}
+body[data-resizing=true] iframe{pointer-events:none}
+body[data-layout=horizontal][data-manager=true] #sidebar-slot{width:var(--b-width)}
+
+/* Let the iframe own the full-height seam; do not stitch it from separate layers. */
+body[data-layout=vertical] #layout-button{background:transparent}
+body[data-layout=vertical] #layout-button:hover{background:transparent}
+body[data-layout=vertical] #layout-button:hover svg{background:color-mix(in srgb,var(--panel-bg) 90%,#808080);box-shadow:0 0 0 8px color-mix(in srgb,var(--panel-bg) 90%,#808080);border-radius:2px}
+#layout-button::before{content:none}
+
+/* Chrome-like seam: backdrop from the ZERO theme, no permanent outer stroke. */
+#sidebar-slot{border-right:0!important}
+#layout-menu{background:#fff;color:#202124;border:1px solid #d7dade;border-radius:12px;padding:8px 0;box-shadow:0 4px 8px #0003}
+#layout-menu button{height:28px;min-height:28px;border-radius:0;padding:0 20px;font-size:12px}

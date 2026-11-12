@@ -1,0 +1,16 @@
+/* A v0.6 — independent scroll regions and Chrome-reference floating edges. */
+#tab-area{position:relative;display:flex;flex-direction:column;flex:1;min-height:0;overflow:visible}
+#pin-dock{position:relative;z-index:3;flex:none;min-height:0;padding:0 12px 8px;background:var(--blue)}
+#pins-scroll{min-height:0;overflow-x:hidden;overflow-y:auto;scrollbar-width:none}
+#browser #pins{margin:0;padding:0;border:0}
+#browser.collapsed #pin-dock{padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+#side-scroll{position:relative;z-index:1;flex:none;min-height:0;padding:0 12px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}
+#list{display:flow-root}
+#new-tab-dock{position:relative;z-index:4;flex:none;padding:8px 12px 12px;background:var(--blue)}
+#new-tab-dock #new-tab{margin:0;height:32px;min-height:32px}
+#side-scroll,#pins-scroll{--fade:20px;mask-image:none;-webkit-mask-image:none}
+#side-scroll[data-scroll-up=true][data-scroll-down=false],#pins-scroll[data-scroll-up=true][data-scroll-down=false]{mask-image:linear-gradient(to bottom,transparent,#000 var(--fade),#000);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 var(--fade),#000)}
+#side-scroll[data-scroll-up=false][data-scroll-down=true],#pins-scroll[data-scroll-up=false][data-scroll-down=true]{mask-image:linear-gradient(to bottom,#000,#000 calc(100% - var(--fade)),transparent);-webkit-mask-image:linear-gradient(to bottom,#000,#000 calc(100% - var(--fade)),transparent)}
+#side-scroll[data-scroll-up=true][data-scroll-down=true],#pins-scroll[data-scroll-up=true][data-scroll-down=true]{mask-image:linear-gradient(to bottom,transparent,#000 var(--fade),#000 calc(100% - var(--fade)),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 var(--fade),#000 calc(100% - var(--fade)),transparent)}
+#browser:not(.collapsed) .group-head .chevron,#browser.peek .group-head .chevron{position:absolute;right:10px;top:7px;width:12px;height:12px;margin:0}
+#sidebar .group-more{border:2px solid transparent;padding:0;background-clip:padding-box}

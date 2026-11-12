@@ -1,0 +1,9 @@
+/* Proposal placement only. Toolbar appearance lives in shared/zero-client-chrome/v1. */
+#browser{--sidebar-width:0px!important;--b-surface:#fff;background:var(--b-surface)!important}
+#sidebar,#resize-handle,#horizontal-tabs{display:none!important}
+#topbar,#main{left:0!important}
+#main{top:42px;border-left:0;border-radius:0 0 0 9px;background:white}
+#topbar{border-radius:9px 0 0 0;background:#fff}
+body[data-b-layout=horizontal] #main,body[data-b-layout=horizontal] #topbar{border-radius:0}
+#b-real-page{margin:0;width:100%;height:100%;overflow:auto;background:#fff}#b-real-page img{display:block;width:100%;height:auto;max-width:none}#b-site-card{margin:50px auto;max-width:600px;padding:32px;border:1px solid #ddd;border-radius:12px;background:white}#b-site-card img{width:32px;height:32px;display:inline-block;margin-right:12px;vertical-align:middle}#b-site-card h1{font-size:22px}#b-site-card p{color:#777;line-height:1.7}
+#b-real-page img{width:1905px;height:858px;max-width:none;object-fit:contain}

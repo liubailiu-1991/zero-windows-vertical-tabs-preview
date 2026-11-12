@@ -1,0 +1,97 @@
+/* v0.2: scoped chrome refinements. Existing page content is inherited. */
+:root{--chrome-bg:#d3e3fd;--chrome-hover:#a8c7fa;--tab-address-bg:#e8e8ee;--button-hover:#c9c9cf;--chrome-ink:#303134}
+#topbar,#tab-hover-card,#tab-context-menu,#address-editor{font-family:"Segoe UI","Microsoft YaHei",Arial,"PingFang SC",sans-serif}
+#topbar{background:var(--chrome-bg);color:var(--chrome-ink)}
+#topbar .navigation .icon{border-radius:50%;height:30px;width:38px}
+#topbar .icon svg{width:20px;height:20px}
+#topbar button:disabled:hover,#topbar button:disabled:active{background:transparent;cursor:default}
+#topbar .icon:not(:disabled):active{background:#0000001e}
+#tabs{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;flex:0 0 auto;height:38px;min-width:0;scroll-behavior:auto}
+#tabs::-webkit-scrollbar{display:none}
+.tab,.many-tabs .tab,.many-tabs .tab.active{min-width:32px;max-width:360px;flex:0 0 auto;height:34px;padding:0 6px 0 10px;gap:8px;border-radius:9px;overflow:hidden}
+.tab{background:transparent}
+.tab .favicon{width:16px;height:16px;flex:none}
+.tab .favicon svg{width:16px;height:16px}
+.tab.active{background:#fff}
+.tab:not(.active):hover{background:var(--chrome-hover)}
+.tab.active:not([data-kind="about"]):hover{background:var(--tab-address-bg)}
+.tab:after{transition:opacity .08s}
+.tab.active:after,.tab:hover:after,.tab:has(+.tab.active):after,.tab:has(+.tab:hover):after{opacity:0}
+.tab .tab-title{display:block;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:30px;font-size:12px}
+.tab-title-text,.tab-address{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tab-address{display:none}
+.tab-location-icon{display:none;flex:none;width:16px;height:16px}
+.tab-location-icon svg{width:16px;height:16px}
+.tab.active:not([data-kind="about"]):hover .tab-location-icon{display:block}
+.tab.active:not([data-kind="about"]):hover .favicon{display:none}
+.tab.active:not([data-kind="about"]):hover .tab-title-text{display:none}
+.tab.active:not([data-kind="about"]):hover .tab-address{display:block}
+.tab button{width:28px;height:28px;display:grid;place-items:center;flex:none;padding:0;background:transparent;margin-left:-6px}
+.tab button svg{width:16px;height:16px}
+.tab button:focus-visible{outline-offset:-3px}
+.tab .tab-copy{display:none}
+.tab.active:hover .tab-copy,.tab.active:focus-visible .tab-copy,.tab.active:has(.tab-copy:focus-visible) .tab-copy{display:grid}
+.tab .copy-glyph{display:grid;place-items:center;width:24px;height:24px;border-radius:50%}
+.tab .close-glyph{display:grid;place-items:center;width:16px;height:16px;border-radius:50%}
+.tab .tab-close:hover,.tab .tab-copy:hover{background:transparent}
+.tab .tab-close:hover .close-glyph{background:var(--button-hover)}
+.tab .tab-close:active .close-glyph{background:#b5b5bd}
+.tab .tab-copy:hover .copy-glyph{background:#d1d1d8}
+.tab .tab-copy:active .copy-glyph{background:#b5b5bd}
+.tab .tab-star{font-size:18px;width:22px;height:28px;line-height:20px}
+.tab .tab-star:hover{background:#d1d1d8}
+.tab.compressed:not(.active){padding-left:8px;gap:6px}
+.tab.compressed:not(.active) .tab-close{display:none}
+.tab.compressed:not(.active):hover .tab-close{display:grid;margin-left:-6px}
+.tab.narrow-no-close:not(.active) .tab-close,.tab.narrow-no-close:not(.active):hover .tab-close{display:none}
+.window-controls .icon svg{width:20px!important;height:20px!important}
+.window-controls .icon{height:42px}
+.window-controls button:hover{background:#00000012}
+#topbar .window-controls .window-close:hover{background:#ff0000;color:white}
+#topbar .window-controls .window-close:active{background:#c90000;color:white}
+#tab-hover-card{position:fixed;width:250px;z-index:30;background:white;border:1px solid #ddd;border-radius:12px;box-shadow:0 2px 5px #0004;overflow:hidden;pointer-events:none;color:#171717;font-size:13px}
+.hover-card-heading{padding:13px 12px 11px;line-height:20px;min-height:42px}
+.hover-card-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hover-card-domain{font-size:13px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hover-card-preview{width:248px;height:139px;display:block;object-fit:cover}
+.hover-card-memory{height:43px;background:#f1f1f1;display:flex;align-items:center;gap:10px;padding:0 13px;border-top:1px solid #ededed;font-size:12px;color:#313438}
+.hover-card-memory>span:first-child{font-size:17px;color:#626468}
+#tab-context-menu{position:fixed;z-index:50;background:#fff;color:#1f1f1f;width:300px;padding:12px 0;border-radius:12px;box-shadow:0 5px 12px #0003;overflow:hidden;font-size:12px}
+#tab-context-menu button{width:100%;height:28px;display:flex;align-items:center;gap:10px;padding:0 16px 0 18px;text-align:left;font:inherit;color:inherit;white-space:nowrap;border-radius:0;background:none}
+#tab-context-menu button:hover,#tab-context-menu button:focus-visible{background:#e9edf4;outline:none}
+#tab-context-menu button:active{background:#dbe3f0}
+.menu-leading{width:20px;height:16px;display:grid;place-items:center;flex:none}
+.menu-leading svg{width:14px;height:14px;stroke-width:1.2}
+.menu-text{flex:1;min-width:0}
+.menu-shortcut{font-size:12px;flex:none;margin-left:8px}
+.menu-separator{height:1px;background:#d3e3fd;margin:8px 0}
+#address-editor{position:fixed;z-index:60;height:114px;padding:8px 12px 10px;border-radius:13px;background:linear-gradient(150deg,#fff 35%,#fffcf1 60%,#fff8fc 75%,#f1ffff);box-shadow:0 3px 13px #0003;color:#303134}
+.address-input-row{height:32px;display:flex;align-items:center;gap:6px;padding:0 5px}
+.address-input-row .google-g{font-size:16px}
+.address-caret{font-size:11px}
+.address-input-row input{font:14px "Segoe UI",Arial,"Microsoft YaHei",sans-serif;flex:1;min-width:0;background:transparent;border:0;height:30px;outline:none;padding:0}
+.address-input-row input:focus-visible{outline:none}
+.address-input-row input::selection{background:#1769df;color:#fff}
+.address-editor-actions{position:absolute;left:12px;right:12px;bottom:11px;display:flex;align-items:center;gap:5px}
+.address-editor-actions .icon{height:32px;width:32px;border-radius:50%;color:#666b68}
+.address-editor-actions .icon:hover{background:#0000000c}
+.address-editor-actions .icon:active{background:#00000020}
+.address-go{height:32px;min-width:78px;border-radius:20px;background:#191c1a;color:#fff;font-size:14px;padding:0 13px;margin-left:3px}
+.address-go:hover{background:#333834}
+.address-go:active{background:#090b09}
+@media(prefers-reduced-motion:reduce){.tab:after{transition:none}}
+
+.window-controls .icon:nth-child(2) svg{width:16px!important;height:16px!important}
+
+.hover-card-memory>span:first-child svg{width:16px;height:16px}
+#tab-context-menu:focus{outline:none}
+.address-editor-actions .icon svg{width:20px;height:20px}
+
+.tab .favicon{display:grid;place-items:center}
+.tab.narrow-no-close:not(.active){gap:6px}
+#tab-hover-card[data-variant="current-newtab"] .hover-card-heading{padding-top:12px}
+#topbar .tab,#topbar button{cursor:default}
+
+#tab-hover-card[data-variant="current-web"] .hover-card-heading{padding-top:12px}
+
+#tab-hover-card{border-radius:8px;box-shadow:0 2px 4px #0004}

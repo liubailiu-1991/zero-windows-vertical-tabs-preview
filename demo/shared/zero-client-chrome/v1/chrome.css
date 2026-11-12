@@ -1,0 +1,66 @@
+/* One versioned ZERO client toolbar; proposal hosts control placement, not appearance. */
+#topbar[data-zero-chrome],#topbar[data-zero-chrome] *{box-sizing:border-box}
+#topbar[data-zero-chrome] button{border:0;font:inherit;color:inherit;background:transparent;cursor:pointer}
+#topbar[data-zero-chrome]{border:0!important;height:42px!important;min-height:42px!important;box-sizing:border-box;display:flex;align-items:center;gap:0!important;padding:0 0 0 7px!important;overflow:hidden;font-family:"Segoe UI","Microsoft YaHei",Arial,"PingFang SC",sans-serif;font-size:12px;color:#303134;user-select:none}
+#topbar[data-zero-chrome] .navigation{display:flex;width:114px!important;flex:0 0 114px!important;gap:0!important}
+#topbar[data-zero-chrome] .navigation .icon{width:38px!important;height:30px!important;border-radius:50%;padding:0;display:grid;place-items:center}
+#topbar[data-zero-chrome] .icon>svg{width:20px!important;height:20px!important;display:block;fill:none;stroke:none;transform:none!important}
+#topbar[data-zero-chrome] .navigation button:disabled{opacity:.35;cursor:default}#topbar[data-zero-chrome] .navigation button:disabled:hover{background:transparent}
+#topbar[data-zero-chrome] .top-tools{display:flex;align-items:center;flex:0 0 auto;gap:0!important;padding:0 0 0 14px!important;margin-left:auto!important;height:42px}
+#topbar[data-zero-chrome] .top-tools .icon{width:32px!important;height:30px!important;padding:0;display:grid;place-items:center;border-radius:50%;background:transparent}
+#topbar[data-zero-chrome] .top-tools .icon img{display:block;width:16px!important;height:16px!important;object-fit:contain}
+#topbar[data-zero-chrome] .top-tools .avatar{width:20px!important;height:20px!important;margin:0 6px 0 12px!important;background:linear-gradient(145deg,#7599ff,#d77bff)!important;color:#ffe97c;font:18px/20px Arial;border-radius:50%;padding:0}
+#topbar[data-zero-chrome] .top-tools .chevron{font:0/0 Arial;margin:0 5px 0 0!important;width:8px;height:4px;background:#50555d;clip-path:polygon(0 0,100% 0,50% 100%)}
+#topbar[data-zero-chrome] .window-controls{display:flex;width:138px!important;height:42px!important;flex:0 0 138px!important;gap:0!important;margin:0!important}
+#topbar[data-zero-chrome] .window-controls .icon{width:46px!important;height:42px!important;border-radius:0;padding:0;display:grid;place-items:center}
+#topbar[data-zero-chrome] .window-controls .icon>svg{width:10px!important;height:10px!important;transform:translateX(3px)!important}
+#topbar[data-zero-chrome] button:hover{background:#00000012}#topbar[data-zero-chrome] button:active{background:#0000001e}
+#topbar[data-zero-chrome] .window-close:hover{background:#e81123!important;color:#fff}#topbar[data-zero-chrome] .window-close:active{background:#c90000!important}
+#topbar[data-zero-chrome] #current-location{min-width:70px;flex:1;margin-right:8px;height:34px}
+#b-horizontal{min-width:0;flex:1;align-items:center;height:42px;display:none}
+body[data-b-layout=horizontal] #b-horizontal{display:flex}
+body[data-b-layout=horizontal] #topbar[data-zero-chrome]{padding-left:47px!important;background:#cfe2ff}
+body[data-b-layout=horizontal] #current-location{display:none!important}
+#b-horizontal-list{display:flex;align-items:center;min-width:0;flex:1;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;height:38px;gap:6px}
+#b-horizontal-list::-webkit-scrollbar{display:none}
+#b-horizontal-list .b-tab{height:34px;min-width:32px;max-width:360px;flex:0 0 auto;display:flex;align-items:center;position:relative;gap:8px;padding:0 6px 0 10px;border-radius:9px;overflow:hidden;background:transparent;color:#303134;font-size:12px;cursor:default}
+#b-horizontal-list .b-tab:not([aria-selected=true]):after{content:"";position:absolute;right:0;top:10px;width:1px;height:15px;background:#9abfea}
+#b-horizontal-list .b-tab[aria-selected=true]{background:#fff}
+#b-horizontal-list .b-tab:not([aria-selected=true]):hover{background:#a8c7fa}
+#b-horizontal-list .b-tab[aria-selected=true]:not([data-kind=about]):hover{background:#e8e8ee}
+#b-horizontal-list .b-tab:hover:after,#b-horizontal-list .b-tab:has(+[aria-selected=true]):after{opacity:0}
+#b-horizontal-list .b-favicon,#b-horizontal-list .b-tab-mode{display:block;flex:none;width:16px;height:16px;object-fit:contain}
+#b-horizontal-list .b-tab-mode{display:none}#b-horizontal-list .b-tab-mode svg{width:16px;height:16px;fill:none;stroke:none}
+#b-horizontal-list .b-tab-label{flex:1;min-width:0;white-space:nowrap;overflow:hidden;line-height:30px;font-size:12px;font-weight:400}
+#b-horizontal-list .b-tab-title,#b-horizontal-list .b-tab-address{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#b-horizontal-list .b-tab-address{display:none}
+#b-horizontal-list .b-tab[aria-selected=true]:not([data-kind=about]):hover .b-favicon{display:none}
+#b-horizontal-list .b-tab[aria-selected=true]:not([data-kind=about]):hover .b-tab-mode{display:block}
+#b-horizontal-list .b-tab[aria-selected=true]:not([data-kind=about]):hover .b-tab-title{display:none}
+#b-horizontal-list .b-tab[aria-selected=true]:not([data-kind=about]):hover .b-tab-address{display:block}
+#b-horizontal-list .b-tab button{flex:none;display:grid;place-items:center;background:transparent;width:28px;height:28px;padding:0;margin-left:-6px;border:0;border-radius:50%}
+#b-horizontal-list .b-tab button svg{width:16px;height:16px;display:block;fill:none;stroke:none}
+#b-horizontal-list .b-tab button>span{display:grid;place-items:center;width:16px;height:16px;border-radius:50%}
+#b-horizontal-list .b-tab .b-copy{display:none}#b-horizontal-list .b-tab[aria-selected=true]:hover .b-copy,#b-horizontal-list .b-tab:focus-within .b-copy{display:grid}
+#b-horizontal-list .b-tab .b-copy>span{width:24px;height:24px}
+#b-horizontal-list .b-tab .b-star{width:22px;margin-left:0}
+#b-horizontal-list .b-close:hover>span{background:#c9c9cf}#b-horizontal-list .b-copy:hover>span,#b-horizontal-list .b-star:hover{background:#d1d1d8}
+#b-horizontal-list .b-tab.compressed:not([aria-selected=true]){padding-left:8px;gap:6px}
+#b-horizontal-list .b-tab.compressed:not([aria-selected=true]) .b-close{display:none}
+#b-horizontal-list .b-tab.compressed:not([aria-selected=true]):hover .b-close{display:grid}
+#b-horizontal-list .b-tab.narrow-no-close:not([aria-selected=true]) .b-close{display:none}
+#b-horizontal-list .b-tab[data-pinned=true]{min-width:32px!important;max-width:32px!important;padding:0;justify-content:center}
+#b-horizontal-list .b-tab[data-pinned=true] .b-tab-label,#b-horizontal-list .b-tab[data-pinned=true] button{display:none!important}
+#b-horizontal-list .b-tab[data-pinned=true]:hover .b-favicon{display:block!important}#b-horizontal-list .b-tab[data-pinned=true] .b-tab-mode{display:none!important}
+#b-horizontal>.icon{width:31px!important;height:30px;flex:none;display:grid;place-items:center;padding:0}#b-horizontal-manager img{width:16px;height:16px}
+@media(max-width:800px){#topbar[data-zero-chrome] .top-tools .orange,#topbar[data-zero-chrome] .top-tools .pink,#topbar[data-zero-chrome] .top-tools .blue,#topbar[data-zero-chrome] .top-tools [aria-label^="阅读模式"]{display:none!important}#topbar[data-zero-chrome] .top-tools{padding-left:4px!important}}
+@media(max-width:500px){#topbar[data-zero-chrome] .top-tools .avatar,#topbar[data-zero-chrome] .top-tools .chevron{display:none!important}#topbar[data-zero-chrome] .navigation{width:76px!important;flex-basis:76px!important}#topbar[data-zero-chrome] .navigation [data-action=forward]{display:none!important}}
+
+/* A future proposal may omit only the optional layout cell. */
+body[data-b-layout=horizontal][data-zero-layout-toggle=none] #topbar[data-zero-chrome]{padding-left:7px!important}
+
+#location-edit{min-width:0}#location-edit .location-mode{width:26px;height:26px;background:transparent;border-radius:0}#location-edit .location-mode svg,#location-edit .location-mode img{width:16px;height:16px}#location-copy,#location-star{width:26px;min-width:26px;height:30px}
+
+/* ZERO 100% Windows reference: reading 42, puzzle 38, AI 36; colored entries remain32. */
+#topbar[data-zero-chrome] .top-tools [aria-label^="阅读模式"]{width:42px!important}
+#topbar[data-zero-chrome] .top-tools [aria-label^="扩展程序"]{width:38px!important}
+#topbar[data-zero-chrome] .top-tools .ai-entry{width:36px!important}

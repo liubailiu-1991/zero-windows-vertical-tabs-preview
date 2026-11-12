@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZERO 标签页管理</title>
+<link rel="stylesheet" href="sidebar.css">
+<script defer src="sidebar-fixture.js"></script>
+<script defer src="window-a/native-icons.js"></script>
+<script defer src="window-a/icons.js"></script>
+<script defer src="window-a/group-icons.js"></script>
+<script defer src="window-a/markup.js"></script>
+<script defer src="window-a/window.js"></script>
+<script defer src="sidebar.js"></script>
+</head>
+<body>
+<nav id="rail" aria-label="标签页管理">
+  <button data-navigation="current" aria-label="窗口标签" title="窗口标签" aria-current="page"></button>
+  <button data-navigation="sites" aria-label="所有窗口的站点" title="所有窗口的站点"></button>
+  <button data-navigation="bookmarks" aria-label="书签" title="书签"></button>
+  <button data-navigation="recent" aria-label="最近关闭" title="最近关闭"></button>
+  <button data-navigation="search" aria-label="全局搜索" title="全局搜索"></button>
+  <button id="rail-new" aria-label="打开新的标签页" title="打开新的标签页"></button>
+  <div class="rail-separator"></div>
+  <button data-shortcut="11" aria-label="哔哩哔哩" title="哔哩哔哩"><img src="../client/assets/favicon-bili-reference.png" alt=""></button>
+  <button data-shortcut="12" aria-label="腾讯文档" title="腾讯文档"><img src="../client/assets/site-docs.png" alt=""></button>
+  <button id="b-panel-toggle" aria-label="收起侧栏" title="收起侧栏"></button>
+</nav>
+<main>
+  <section class="view" data-view="current">
+    <header><div id="windows" aria-label="窗口"></div><button id="deduplicate" title="清理重复标签页" aria-label="清理重复标签页"></button><button id="window-more" title="更多" aria-label="更多" aria-haspopup="menu"></button></header>
+    <div class="window-list" data-current-view="windows"></div>
+  </section>
+  <section class="view" data-view="sites" hidden><header><strong>所有窗口的站点</strong></header><div class="results"></div></section>
+  <section class="view" data-view="bookmarks" hidden><header><strong>书签</strong></header><div class="results"></div></section>
+  <section class="view" data-view="recent" hidden><header><strong>最近关闭的标签页</strong></header><div class="results"></div></section>
+  <section class="view" data-view="search" hidden>
+    <header><input type="search" id="search" aria-label="搜索标签页、收藏和历史" placeholder="搜索标签页、收藏和历史…" autocomplete="off"></header>
+    <div class="results"></div>
+  </section>
+</main>
+<div id="window-menu" role="menu" hidden><button role="menuitem" id="new-window">新建窗口</button><button role="menuitem" id="menu-deduplicate">清理重复标签页</button></div>
+<div id="notice" role="status" hidden></div>
+</body>
+</html>
