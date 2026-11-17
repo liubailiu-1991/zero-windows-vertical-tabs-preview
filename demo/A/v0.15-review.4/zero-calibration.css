@@ -1,0 +1,79 @@
+/* v0.3: source-bound pictograms; canvas size is independent of the click target. */
+.native-icon,.webui-icon{stroke:none;fill:none}
+#topbar{outline:none}
+#topbar .top-tools .icon{width:32px;height:30px}
+#topbar .top-tools .icon img{display:block;width:16px;height:16px;object-fit:contain}
+#topbar .top-tools .icon svg{width:20px;height:20px}
+#topbar .tab .favicon{place-items:center}
+#topbar .tab .favicon img,#topbar .tab .favicon svg{display:block;width:16px;height:16px;object-fit:contain}
+#topbar .tab .tab-star{padding:0;display:grid;place-items:center;width:22px;height:28px;margin-left:0}
+#topbar .tab .tab-star svg{width:16px;height:16px}
+#topbar>.icon[aria-label="标签列表（未模拟）"] svg{width:16px;height:16px}
+#topbar .tab .tab-location-icon svg{stroke:none}
+#topbar .window-controls svg{transform:translateX(2px)}
+.google-g img{display:block;width:16px;height:16px;object-fit:contain}
+.tab .google-g img{width:16px;height:16px}
+#bookmarks img{width:16px;height:16px;display:block}
+.left-tools svg{width:24px;height:24px}
+.left-tools .webui-icon{stroke:none;fill:none}
+.left-tools .webui-icon path[stroke]{stroke-width:1}
+.left-tools button>span{height:25px}
+.left-tools button{font-weight:400}
+.newtab-search,.shortcuts{left:calc(50% + 2px)}
+.newtab-search{box-shadow:-1px -1px 5px #ffedac80,1px -1px 5px #ffc5e180,1px 1px 5px #a7d4ffb3,-1px 1px 5px #c4f5ba80;background:linear-gradient(white,white) padding-box,conic-gradient(from 25deg,#b4d8ff 0deg,#b4d8ff 90deg,#6deae9 155deg,#c3eab6 230deg,#ffe493 270deg,#ffd4de 305deg,#c8cbff 340deg,#b4d8ff 360deg) border-box}
+.search-actions .icon svg{width:16px;height:16px}
+.search-actions .icon[aria-label="语音输入（未模拟）"] svg{width:20px;height:20px}
+.search-actions .send .webui-icon{width:20px;height:20px}
+.address-editor-actions .icon svg{width:16px;height:16px}
+.address-editor-actions .icon[aria-label="地址编辑语音（未模拟）"] svg{width:20px;height:20px}
+.theme{display:flex;align-items:center;gap:7px;padding:4px 9px}
+.theme img{width:16px;height:16px;object-fit:contain}
+.default-browser{left:calc(50% + 2px);width:440px;gap:9px;padding-left:12px}
+.default-browser>span{flex:1}
+.default-browser>button:not(.dismiss){flex:none;margin-left:0}
+.default-browser>img{width:24px;height:24px}
+#tab-context-menu .menu-leading svg{width:14px;height:14px}
+.hover-card-memory{gap:8px}
+#window-system-menu{position:fixed;z-index:70;width:304px;height:273px;padding:2px 0;background:#f9f9f9;color:#000;border:0;border-radius:2px;box-shadow:0 4px 9px #0003;overflow:hidden;font:12px "Segoe UI","Microsoft YaHei UI","Microsoft YaHei",Arial,"PingFang SC",sans-serif;outline:none}
+#window-system-menu .system-menu-item{display:flex;align-items:center;width:100%;height:22px;padding:0 24px 0 10px;gap:12px;border:0;border-radius:0;background:transparent;font:inherit;white-space:nowrap;text-align:left;color:inherit}
+#window-system-menu .system-menu-item:hover:not(:disabled),#window-system-menu .system-menu-item:focus-visible{background:#e5e5e5;outline:none}
+#window-system-menu .system-menu-item:active:not(:disabled){background:#d7d7d7}
+#window-system-menu .system-menu-item:disabled{color:#999;cursor:default}
+#window-system-menu .system-leading{width:16px;height:16px;display:grid;place-items:center;flex:none}
+#window-system-menu .system-leading svg{width:12px;height:12px}
+#window-system-menu [data-window-command="close"] svg{width:13px;height:13px}
+#window-system-menu .system-label{flex:1;min-width:0}
+#window-system-menu .system-key{margin-left:12px;font-size:12px}
+#window-system-menu .default-command .system-label{font-weight:700}
+#window-system-menu .system-separator{height:1px;margin:4px 8px;background:#d7d7d7}
+
+#topbar .top-tools .avatar{height:22px;width:22px;margin-right:0}
+#topbar .top-tools .chevron{font-size:0;margin-right:0;width:8px;height:4px;background:#50555d;clip-path:polygon(0 0,100% 0,50% 100%)}
+#topbar .window-controls .icon .caption-icon,#topbar .window-controls .icon:nth-child(2) .caption-icon{width:10px!important;height:10px!important;stroke-linecap:butt;stroke-linejoin:miter;shape-rendering:geometricPrecision}
+#window-system-menu .system-leading .caption-icon{width:8px;height:8px;stroke-linecap:butt;stroke-linejoin:miter}
+.theme svg{width:16px;height:16px}
+.theme>span{border-left:1px solid #ddd;padding-left:7px}
+
+#topbar,#tab-hover-card,#tab-context-menu,#address-editor,#window-system-menu{font-family:"Segoe UI","Segoe UI Variable","Microsoft YaHei UI","Microsoft YaHei",Arial,"PingFang SC",sans-serif}
+
+#topbar .top-tools .ai-entry{width:42px;border-radius:50%}
+#topbar .top-tools .ai-entry:hover{background:#00000014}
+#topbar .top-tools .ai-entry:active{background:#00000024}
+.assistant-mark img{display:block;width:20px;height:20px}
+
+
+.tab .tab-title,.tab .tab-title-text,.tab .tab-address{text-overflow:clip}
+.tab:not(.active) .tab-title{mask-image:linear-gradient(to right,#000 calc(100% - 8px),transparent)}
+
+/* The supplied narrow capture retains these content anchors; tools center in the page. */
+.hero{top:73px}
+.newtab-search{top:290px}
+.shortcuts{top:440px}
+.left-tools{top:50%;transform:translateY(-50%)}
+.default-browser{bottom:28px}
+#topbar .window-controls button{width:46px}
+#topbar .top-tools{gap:1px;padding-left:14px}
+body[data-fixture="narrow"] .shortcuts{width:560px}
+body[data-fixture="narrow"] .shortcut img{padding:12px;background:transparent}
+
+body[data-fixture="narrow"] .hero{left:calc(50% + 2px)}

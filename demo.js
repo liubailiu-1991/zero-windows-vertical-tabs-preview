@@ -19,7 +19,7 @@ if (query.has('state')) {
       {type:'zero:quick-tools-mode', mode}, location.origin
     );
     function updateControls() {
-      full.href = 'demo/A/v0.14-review.3/?shortcuts=' + mode;
+      full.href = 'demo/A/v0.15-review.4/?shortcuts=' + mode;
       for (const button of buttons) {
         button.setAttribute('aria-pressed', String(button.dataset.shortcuts === mode));
       }

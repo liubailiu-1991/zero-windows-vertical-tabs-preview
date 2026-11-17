@@ -1,0 +1,75 @@
+/* The footer stays outside the tab scroller. */
+#quick-tools-dock {
+  container: quick-tools / inline-size;
+  flex: none;
+  padding-bottom: 12px;
+}
+.sidebar-tools {
+  border-top: 1px solid var(--line, #a5c9ea);
+  margin-inline: 12px;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+.sidebar-tools button {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 32px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: var(--quick-tools-rest, #ffffff64);
+  color: #263c50;
+  cursor: pointer;
+}
+.sidebar-tools button:hover { background: #ffffffac; }
+.sidebar-tools button:active { background: #aac9eb; }
+.sidebar-tools button:focus-visible { outline: 2px solid #1665b8; outline-offset: 2px; }
+.sidebar-tools button > span:first-child { display: grid; place-items: center; }
+.sidebar-tools svg { display: block; width: 18px; height: 18px; }
+.sidebar-tools svg.webui-icon { stroke: none; fill: none; }
+.sidebar-tools .phone-stack { width: 21px; height: 18px; }
+.sidebar-tools .phone-stack img:first-child { width: 13px; height: 17px; left: 0; }
+.sidebar-tools .phone-stack img:last-child { width: 12px; height: 12px; bottom: 0; }
+.sidebar-tools .tool-label { display: none; }
+@container quick-tools (width < 176px) {
+  .sidebar-tools { margin-inline: 8px; column-gap: 4px; }
+}
+@container quick-tools (width >= 224px) {
+  html[data-quick-tools-mode="labels"] #browser:is(:not(.collapsed), .peek) .sidebar-tools {
+    --quick-tools-rest: transparent;
+  }
+  html[data-quick-tools-mode="labels"] #browser:is(:not(.collapsed), .peek) .sidebar-tools button {
+    height: 44px;
+    align-content: center;
+    row-gap: 3px;
+  }
+  html[data-quick-tools-mode="labels"] #browser:is(:not(.collapsed), .peek) .sidebar-tools .tool-label {
+    display: block;
+    font-size: 11px;
+    line-height: 15px;
+    white-space: nowrap;
+  }
+}
+/* Only the compact rail uses the vertical stack. */
+#browser.collapsed:not(.peek) .sidebar-tools {
+  grid-template-columns: 32px;
+  margin-inline: 12px 0;
+  gap: 4px;
+  border-top: 0;
+  box-shadow: inset 0 1px var(--line, #a5c9ea);
+  width: 32px;
+}
+#browser.collapsed:not(.peek) .sidebar-tools button { border-radius: 50%; }
+@media (max-height: 450px) {
+  #quick-tools-dock { padding-bottom: 7px; }
+  .sidebar-tools { padding-top: 6px; row-gap: 4px; }
+  #browser.collapsed:not(.peek) .sidebar-tools { gap: 2px; }
+}
+/* Retain the original text sizing when the same controls return to the page. */
+.left-tools button > .tool-label { height: auto; display: block; }
