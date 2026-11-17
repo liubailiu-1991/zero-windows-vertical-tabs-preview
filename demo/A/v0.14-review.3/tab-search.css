@@ -1,0 +1,125 @@
+#popover.tab-search-popup {
+  width: min(320px, calc(100vw - 16px));
+  box-shadow: 0 2px 5px #0003;
+}
+
+#popover.tab-search-popup .search-head {
+  gap: 12px;
+}
+
+#popover.tab-search-popup .search-head input {
+  flex: 1;
+  padding: 0;
+}
+
+#popover.tab-search-popup .search-head svg {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  color: #5f6368;
+}
+
+#popover.tab-search-popup .search-head kbd {
+  font-family: inherit;
+  font-size: 12px;
+  color: #5f6368;
+}
+
+#popover.tab-search-popup .search-results {
+  scrollbar-width: auto;
+  scrollbar-color: auto;
+  overscroll-behavior-y: contain;
+}
+
+#popover.tab-search-popup .search-results::-webkit-scrollbar {
+  width: 4px;
+}
+
+#popover.tab-search-popup .search-results::-webkit-scrollbar-thumb {
+  background: #0b57d0;
+  border-radius: 0;
+}
+
+#popover.tab-search-popup .search-results.has-rows {
+  padding-bottom: 16px;
+}
+
+#popover.tab-search-popup .result-heading[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+#popover.tab-search-popup .search-result {
+  padding-right: 20px;
+}
+
+#popover.tab-search-popup .result-open {
+  background: transparent;
+}
+
+#popover.tab-search-popup .result-open:focus-visible {
+  outline-offset: -2px;
+}
+
+#popover.tab-search-popup .search-result:hover {
+  background: #ececec;
+}
+
+#popover.tab-search-popup:has(input:focus):not(:has(.search-result:hover))
+  .search-result.first-match,
+#popover.tab-search-popup .search-result:focus-within:not(:hover) {
+  background: #e3e3e3;
+}
+
+#popover.tab-search-popup:has(input:focus):not(:has(.search-result:hover))
+  .search-result.first-match .result-close {
+  visibility: visible;
+}
+
+#popover.tab-search-popup .result-icon {
+  background: #f1f1f1;
+}
+
+#popover.tab-search-popup .result-icon .favicon .unread {
+  display: none;
+}
+
+#popover.tab-search-popup .result-text {
+  gap: 2px;
+  line-height: 16px;
+}
+
+#popover.tab-search-popup .result-text small {
+  display: flex;
+  min-width: 0;
+  gap: 4px;
+  align-items: baseline;
+  line-height: 14px;
+  white-space: nowrap;
+}
+
+#popover.tab-search-popup .result-text .result-age {
+  flex: none;
+}
+
+#popover.tab-search-popup .result-text mark {
+  font-weight: 650;
+  color: inherit;
+  background: transparent;
+}
+
+#popover.tab-search-popup .result-close {
+  width: 24px;
+  height: 24px;
+  padding: 6px;
+  color: #5f6368;
+}
+
+#popover.tab-search-popup .result-close svg {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+#popover.tab-search-popup .result-close:hover {
+  background: #0000000f;
+}

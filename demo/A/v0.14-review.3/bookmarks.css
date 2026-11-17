@@ -1,0 +1,11 @@
+/* Fixed sample bookmarks; native vector paths are bound in assets/bookmark-icons-provenance.json. */
+#bookmarks { gap:4px; padding:0 8px 0 12px; height:35px; color:#3c4043; }
+#bookmark-items { min-width:0; flex:1; display:flex; align-items:center; gap:4px; overflow:hidden; }
+#bookmarks button { height:28px; padding:0 4px; gap:6px; border-radius:4px; font-size:12px; font-weight:400; line-height:normal; }
+#bookmarks button:hover { background:#edf0f3; }
+#bookmarks button:focus-visible { outline:2px solid #1769df; outline-offset:-2px; }
+#bookmarks img { width:16px; height:16px; flex:none; display:block; }
+#bookmarks [data-bookmark-kind="folder"] img { width:20px; height:20px; }
+#bookmark-overflow { width:28px; flex:none; justify-content:center; }
+.bookmark-divider { flex:none; width:1px; height:16px; background:#d3d9df; margin:0 7px; }
+#other-bookmarks { flex:none; }

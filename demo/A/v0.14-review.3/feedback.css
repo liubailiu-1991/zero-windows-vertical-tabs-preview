@@ -1,0 +1,92 @@
+/* A v0.5 — user supplied Chrome vertical-tab feedback; scoped to this revision. */
+:root{--blue:#cbe5ff;--soft:#e8f3ff;--line:#93c6fc;--hover:#a8c7fa}
+#browser{background:var(--blue)}
+#main{border-bottom-left-radius:9px;border-left-color:#bdc7d0}
+#topbar{border-left-color:#bdc7d0}
+.horizontal#browser{background:#fff}.horizontal #main{border-radius:0}
+#sidebar .tab-label{flex:1 1 auto;min-width:0;mask-image:none;-webkit-mask-image:none}
+#sidebar .tab-label.overflows{mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent);-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 14px),transparent)}
+#sidebar .tab .close-tab:hover{background:#94aed9}
+#sidebar .tab.active .close-tab:hover{background:#e2e5e9}
+.group-header{position:relative;height:26px;margin-bottom:4px}
+#sidebar .group-head{margin:0;padding-right:8px;color:#fff;background:var(--group-color);filter:none}
+#sidebar .group-head:hover,#sidebar .group-head:active,#sidebar .group-head:focus{background:var(--group-color);filter:none}
+.group-name{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-right:32px}
+#sidebar .group-more{position:absolute;top:3px;right:28px;display:flex;align-items:center;justify-content:center;width:20px;height:20px;padding:2px;border-radius:50%;color:#fff;opacity:0;pointer-events:none;visibility:hidden}
+#sidebar .group-more svg{width:16px;height:16px;fill:currentColor;stroke:none}
+#sidebar .group-more svg path{stroke:none}
+#sidebar .group-header:hover .group-more,#sidebar .group-header:focus-within .group-more{opacity:1;visibility:visible;pointer-events:auto}
+#sidebar .group-more:hover,#sidebar .group-more:focus-visible{background:#0002}
+.group-preview{padding:12px;font-size:13px;line-height:22px;color:#303437;max-height:300px;overflow-y:auto}
+.group-preview ul{padding-left:15px;margin:2px 0 0}.group-preview li{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#popover.group-menu{width:272px;padding:0;max-height:calc(100dvh - 16px);overflow:auto;border:1px solid #dadce0;border-radius:12px;background:#fff;box-shadow:0 2px 5px #0004;font:13px/20px "Segoe UI","Microsoft YaHei",Arial,sans-serif;color:#303437;scrollbar-width:thin}
+.chrome-group-editor{margin:0;padding:0}.group-controls{padding:16px 16px 8px}
+.group-controls input{width:100%;height:38px;padding:8px 10px;border:1px solid #b8c1cc;border-radius:8px;background:#fff;color:#303437;font:13px/20px "Segoe UI","Microsoft YaHei",Arial,sans-serif;outline:none;box-shadow:none}
+.group-controls input:focus{border:2px solid #1967d2;padding:7px 9px;outline:none;box-shadow:none}
+#popover.group-menu .color-options{display:flex;justify-content:flex-start;gap:4px;margin:10px 0 0;height:20px;align-items:center}
+#popover.group-menu .color-choice{position:relative;width:20px;height:20px;flex:none;padding:2px;border:0;outline:0;border-radius:50%;background:transparent;box-shadow:none}
+#popover.group-menu .color-choice::before{content:"";display:block;width:16px;height:16px;border-radius:50%;background:var(--choice-color)}
+#popover.group-menu .color-choice[aria-pressed=true]{box-shadow:inset 0 0 0 1px var(--choice-color)}
+#popover.group-menu .color-choice[aria-pressed=true]::before{width:12px;height:12px;margin:2px}
+#popover.group-menu .color-choice:focus-visible{outline:2px solid #1967d2;outline-offset:1px}
+.group-menu-separator{height:1px;background:#d3e3fd;flex:none}
+.group-actions{padding:8px 0}
+#popover.group-menu .group-actions button{width:100%;height:32px;display:flex;align-items:center;text-align:left;gap:12px;padding:0 16px;border-radius:0;background:#fff;white-space:nowrap;color:#303437}
+#popover.group-menu .group-actions button:hover,#popover.group-menu .group-actions button:focus-visible{background:#f2f2f2}
+.group-actions svg{width:16px;height:16px;flex:none;color:#6b6e70}.group-actions svg path{stroke:none}
+.group-actions span{flex:1;min-width:0}.group-actions kbd{font:12px/20px "Segoe UI",Arial,sans-serif;white-space:nowrap;color:#50575c}
+.group-save-info{background:#f2f2f2;padding:16px;color:#5f6368;font-size:12px;line-height:20px}
+#popover .group-learn-more{display:inline;padding:0;background:transparent;color:#1967d2;text-decoration:underline;font:inherit;white-space:normal}
+#popover.group-confirm{width:320px;max-height:calc(100dvh - 16px);overflow:auto;padding:20px;border-radius:12px;background:#fff;box-shadow:0 2px 8px #0004}
+.group-confirm h3{font-size:16px;line-height:24px;font-weight:500;margin:0 0 10px}.group-confirm p{font-size:13px;line-height:20px;margin:0 0 20px;color:#5f6368}
+.group-confirm>div{display:flex;gap:8px;justify-content:flex-end}.group-confirm button{padding:7px 14px;border:1px solid #dadce0;border-radius:18px;background:#fff;color:#1967d2}.group-confirm [data-confirm=yes]{background:#1967d2;color:white;border-color:#1967d2}
+/* Hover expansion reveals text to the right of a stable icon column. No row regrouping. */
+.collapsed .side-head{position:relative;display:block;height:112px;min-height:112px;padding:0;gap:0}
+.collapsed .side-head #collapse{position:absolute;left:12px;top:8px;margin:0}
+.collapsed .side-head .combo{position:absolute;left:14px;top:48px;display:flex;flex-direction:column;gap:2px;margin:0;width:28px}
+.collapsed .combo-button{width:28px;height:28px;min-height:28px;padding:6px;justify-content:center}
+.collapsed.peek .side-head{height:112px;min-height:112px;padding:0}
+.collapsed.peek .side-head .combo{left:12px;width:calc(100% - 24px)}
+.collapsed.peek .combo-button{width:100%;justify-content:flex-start;padding:6px 8px;gap:8px}
+.collapsed .side-separator{margin:0 12px 8px}
+.collapsed #pins,.collapsed.peek #pins{display:grid;grid-template-columns:1fr;gap:4px;margin:0 0 8px}
+.collapsed #pins:empty{display:none}
+.collapsed #sidebar .tab.pinned,.collapsed.peek #sidebar .tab.pinned{height:32px;margin:0;width:32px}
+.collapsed.peek #sidebar .tab.pinned{width:100%;padding:0 8px;justify-content:flex-start;border:1px solid #a5ccf8}
+.collapsed.peek #sidebar .tab.pinned .favicon{margin-left:-1px}
+.collapsed.peek #sidebar .tab.pinned .tab-label{display:block}
+.collapsed.peek #pins{padding-bottom:10px;border-bottom:1px solid var(--line)}
+.collapsed #pins{padding-bottom:10px;border-bottom:1px solid transparent}
+.collapsed .group{position:relative}
+.collapsed .group::before{content:"";position:absolute;left:-5px;top:0;width:2px;height:calc(100% - 2px);background:var(--group-color);pointer-events:none}
+.collapsed .group-body,.collapsed.peek .group-body{border:0;margin:0 0 6px;padding:0}
+.collapsed #sidebar .group-body .tab{width:32px;padding:0;justify-content:center}
+.collapsed.peek #sidebar .group-body .tab{width:100%;padding:0 8px;justify-content:flex-start}
+.collapsed .group-header{width:32px}
+.collapsed.peek .group-header{width:100%}
+.collapsed:not(.peek) #sidebar .group-more{display:none}
+.collapsed.peek .group-name{padding-right:32px}
+
+/* Maintain positions during width interpolation too, including the tool column. */
+.collapsed.peek .side-head .combo{transition:none}
+
+.collapsed.peek #sidebar .combo-button{padding-left:8px}
+#sidebar .group-header.menu-open .group-more{opacity:1;visibility:visible;pointer-events:auto;background:#0002}
+
+/* Reference close-hover disk measures about14 CSS px inside the20px hit area. */
+#sidebar .tab button.close-tab{border:3px solid transparent;padding:0;background-clip:padding-box}
+
+.opening-group-menu #sidebar{transition:none}
+
+.collapsed:not(.peek) #sidebar .group-head{padding:0;justify-content:center}
+.collapsed:not(.peek) #sidebar .group-head .chevron{margin:0}
+
+.group-preview li{overflow:visible;display:list-item;list-style:disc}
+.group-preview li span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Chromium vertical layout allocates close-button space only while it is visible. */
+#browser #sidebar .tab:not(.pinned) .close-tab{display:none}
+#browser:not(.collapsed) #sidebar .tab:not(.pinned):is(:hover,.active,.selected,:focus-within) .close-tab,
+#browser.peek #sidebar .tab:not(.pinned):is(:hover,.active,.selected,:focus-within) .close-tab{display:flex}
+
+/* Chrome keeps the new-tab action centered as the sidebar width animates. */
+.collapsed #new-tab,.collapsed.peek #new-tab{justify-content:center;padding:0}
